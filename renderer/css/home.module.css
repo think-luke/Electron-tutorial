@@ -1,0 +1,55 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: flex-start;
+    gap: 50px;
+    width: 90vw;
+    height: 100vh;
+}
+
+.banner {
+    width: 90vw;
+    height: 100px;
+    background: grey;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.appTitle {
+    width: 200px;
+    margin-left: 10px;
+    height: 50px;
+    font-size: 24px;
+    color: black;
+}
+
+.tabBox {
+    display: flex;
+    flex-direction: row;
+    width: 90vw;
+    padding-left: 10px;
+    height: 50px;
+    background: lightgrey;
+}
+
+.tab {
+    font-size: 14px;
+    color: black;
+}
+
+.popoutBox {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 300px;
+    height: 500px;
+}
+
+.popoutButton {
+    width: 200px;
+    height: 25px;
+}
+

@@ -1,4 +1,5 @@
 import { ipcRenderer } from "electron";
+import styles from "../css/home.module.css";
 
 const Home = () => {
 
@@ -19,17 +20,19 @@ const Home = () => {
   }
 
   return (
-    <>
-      <h1>Hello World</h1>
-      <p>Welcome to my Nextron desktop app</p>
-      <div>
-       <button onClick={openWindow}>Open sample page</button>      
-       <button onClick={showNotification}>Display a notification</button>
-       <button onClick={closeSampleWindow}>Close sample window</button>
-        <a target="_blank" href="https://www.electronjs.org/">Open Electron docs</a>
+    <section className={styles.home}>
+      <div className={styles.banner}>
+        <h1 className={styles.appTitle}>Sub app content</h1>  
+        <div className={styles.tabBox}>
+          <p className={styles.tab}>--- We'll have tabs and pinned apps around here ---</p>
+        </div>
       </div>
-     
-    </>
+      <div className={styles.popoutBox}>
+        Pop out window demo
+       <button className={styles.popoutButton} onClick={openWindow}>Pop out sample window</button>      
+       <button className={styles.popoutButton} onClick={closeSampleWindow}>Close sample pop out</button>
+      </div>
+    </section>
   );
 };
 
