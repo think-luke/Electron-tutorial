@@ -14,7 +14,7 @@ const Home = () => {
     }).onclick = () => console.log("Notification Clicked");
   };
 
-  const closeMainWindow = () => {
+  const closeSampleWindow = () => {
     ipcRenderer.send("close-one-window")
   }
 
@@ -25,8 +25,8 @@ const Home = () => {
       <div>
        <button onClick={openWindow}>Open sample page</button>      
        <button onClick={showNotification}>Display a notification</button>
-       <button onClick={closeMainWindow}>Close main window</button>
-      <a target="_blank" href="https://www.electronjs.org/">Open Electron docs</a>
+       <button onClick={closeSampleWindow}>Close sample window</button>
+        <a target="_blank" href="https://www.electronjs.org/">Open Electron docs</a>
       </div>
      
     </>

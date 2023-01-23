@@ -40,9 +40,7 @@ if (isProd) {
   });
 
   ipcMain.on('close-one-window', () => {
-    console.log(windows);
-    windows.delete(mainWindow);
-    console.log(windows);
+    sampleWindow.destroy();
   })
 
 })();
