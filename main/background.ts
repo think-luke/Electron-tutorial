@@ -13,6 +13,8 @@ if (isProd) {
 (async () => {
   await app.whenReady();
 
+  const windows = new Set();
+
   const mainWindow = createWindow("main", {
     width: 1000,
     height: 600,
@@ -36,6 +38,12 @@ if (isProd) {
   ipcMain.on("show-sample", () => {
     sampleWindow.show();
   });
+
+  ipcMain.on('close-one-window', () => {
+    console.log(windows);
+    windows.delete(mainWindow);
+    console.log(windows);
+  })
 
 })();
 
