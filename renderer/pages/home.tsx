@@ -1,15 +1,15 @@
-import React from 'react';
-import Head from 'next/head';
-import Link from 'next/link';
+import { ipcRenderer } from "electron";
 
-function Home() {
+const Home = () => {
+  const openWindow = () => {
+    ipcRenderer.send("show-sample");
+  };
+
   return (
     <>
       <h1>Hello World</h1>
       <p>Welcome to my Nextron desktop app</p>
-      <Link href="/sample">
-        <a>Go to sample page</a>
-      </Link>
+      <button onClick={openWindow}>Open sample page</button>
     </>
   );
 };

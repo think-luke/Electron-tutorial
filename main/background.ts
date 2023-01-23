@@ -1,4 +1,4 @@
-import { app } from 'electron';
+import { app, ipcMain } from 'electron';
 import serve from 'electron-serve';
 import { createWindow } from './helpers';
 
@@ -13,18 +13,30 @@ if (isProd) {
 (async () => {
   await app.whenReady();
 
-  const mainWindow = createWindow('main', {
+  const mainWindow = createWindow("main", {
     width: 1000,
     height: 600,
   });
+  
+  const sampleWindow = createWindow("sample", {
+    width: 700,
+    height: 400,
+    show: false,
+  });
 
   if (isProd) {
-    await mainWindow.loadURL('app://./home.html');
+    await mainWindow.loadURL("app://./home.html");
+    await sampleWindow.loadURL("app://./sample.html");
   } else {
     const port = process.argv[2];
     await mainWindow.loadURL(`http://localhost:${port}/home`);
-    mainWindow.webContents.openDevTools();
+    await sampleWindow.loadURL(`http://localhost:${port}/sample`);
   }
+
+  ipcMain.on("show-sample", () => {
+    sampleWindow.show();
+  });
+
 })();
 
 app.on('window-all-closed', () => {

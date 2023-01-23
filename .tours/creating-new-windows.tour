@@ -1,0 +1,37 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Creating new windows",
+  "steps": [
+    {
+      "file": "main/background.ts",
+      "description": "Begin by updating the Electron imports to include ipcMain.",
+      "line": 1
+    },
+    {
+      "file": "main/background.ts",
+      "description": "While the use of this is very uncommon, it is also possible to programmatically create new windows. We would typically have used Electron’s BrowserWindow to accomplish this, but Nextron already exports a helper method called createWindow for us, which we can use instead.",
+      "line": 3
+    },
+    {
+      "file": "main/background.ts",
+      "description": "Let's start by creating a main window with larger dimensions.",
+      "line": 16
+    },
+    {
+      "file": "main/background.ts",
+      "description": "After creating the main window, we'll create another window (sampleWindow), setting its initial width and height to 700×400 and also setting its show value to false so that this window is not visible by default.",
+      "line": 21
+    },
+    {
+      "file": "main/background.ts",
+      "description": "With the help of Electron’s ipcMain event emitter, we'll listen for an event called \"show-sample\", so that when this event is emitted, we display the new sampleWindow.",
+      "line": 36
+    },
+    {
+      "file": "main/background.ts",
+      "description": "The next step would be to emit this event programmatically, and we can also do that easily with ipc in a page. For example, in render/home.tsx.",
+      "line": 40
+    }
+  ],
+  "ref": "main"
+}
