@@ -45,7 +45,6 @@ if (isProd) {
 
   ipcMain.on('count-windows', () => {
     const windows = BrowserWindow.getAllWindows();
-    console.log(windows.length);
   })
 
   ipcMain.on('log-window-ids', () => {

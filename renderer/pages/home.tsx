@@ -1,7 +1,12 @@
 import { ipcRenderer } from "electron";
 import styles from "../css/home.module.css";
+// import { useState } from 'react';
+
 
 const Home = () => {
+  // const [windowCount, setWindowCount] = useState("");
+  // const [windowIds, setWindowIds] = useState("");
+  // const [windowURLs, setWindowURLs] = useState("")
 
   const openWindow = () => {
     ipcRenderer.send("show-sample");
