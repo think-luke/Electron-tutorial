@@ -1,0 +1,37 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "The file structure for a Nextron project",
+  "steps": [
+    {
+      "file": "CodeTour.md",
+      "description": "This directory exports a module called createWindow, which uses Electron’s BrowserWindow function to create our desktop application window. We can configure the default app window options here, such as its initial size and position.",
+      "line": 7
+    },
+    {
+      "file": "CodeTour.md",
+      "description": "This folder contains index.ts and create-window.ts. It can scale up to contain BrowserView modules or other helpers.",
+      "line": 8
+    },
+    {
+      "file": "CodeTour.md",
+      "description": "This file is where the createWindow function is initialized and is responsible for serving our Next.js application as an Electron application.",
+      "line": 9
+    },
+    {
+      "file": "CodeTour.md",
+      "description": "All the Next.js-related code is located inside the /render folder.",
+      "line": 11
+    },
+    {
+      "file": "CodeTour.md",
+      "description": "We may put our desktop application resources, such as app icons, here.",
+      "line": 15
+    },
+    {
+      "file": "CodeTour.md",
+      "description": "The Nextron app is copyrighted and the details are: Copyright © 2018 Yoshihide Shiono.",
+      "line": 18
+    }
+  ],
+  "ref": "main"
+}
