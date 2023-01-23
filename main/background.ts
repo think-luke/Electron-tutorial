@@ -1,4 +1,4 @@
-import { app, ipcMain } from 'electron';
+import { app, BrowserWindow, ipcMain } from 'electron';
 import serve from 'electron-serve';
 import { createWindow } from './helpers';
 
@@ -41,6 +41,21 @@ if (isProd) {
 
   ipcMain.on('close-one-window', () => {
     sampleWindow.destroy();
+  })
+
+  ipcMain.on('count-windows', () => {
+    const windows = BrowserWindow.getAllWindows();
+    console.log(windows.length);
+  })
+
+  ipcMain.on('log-window-ids', () => {
+    const windows = BrowserWindow.getAllWindows();
+    windows.forEach(window => console.log(window.id))
+  })
+
+  ipcMain.on('log-window-urls', () => {
+    const windows = BrowserWindow.getAllWindows();
+    windows.forEach(window => console.log(window.webContents.getURL()))
   })
 
 })();

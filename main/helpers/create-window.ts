@@ -16,6 +16,8 @@ export default (windowName: string, options: BrowserWindowConstructorOptions): B
   let state = {};
   let win;
 
+  const windows = new Set();
+
   const restore = () => store.get(key, defaultSize);
 
   const getCurrentPosition = () => {
@@ -77,6 +79,10 @@ export default (windowName: string, options: BrowserWindowConstructorOptions): B
     },
   };
   win = new BrowserWindow(browserOptions);
+
+  //Add to set 
+  windows.add(win);
+  console.log(windows)
 
   win.on('close', saveState);
 
