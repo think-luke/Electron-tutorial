@@ -5,6 +5,7 @@ const mainWindow = () => {
   // Fake things like window position (bonus, not MVP, out of scope)
   // In scope: keep this app lightweight and people can switch back and forth between sub-apps
   // Keep subapps loaded in the background, without a reload and without crashing
+
   return (
     <></>
   );
