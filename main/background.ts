@@ -3,7 +3,7 @@ import serve from 'electron-serve';
 import { createWindow } from './helpers';
 
 const isProd: boolean = process.env.NODE_ENV === 'production';
-
+const windows = new Set()
 if (isProd) {
   serve({ directory: 'app' });
 } else {
@@ -26,12 +26,14 @@ if (isProd) {
     show: false,
   });
 
+  windows.add(mainWindow)
+
   if (isProd) {
     await mainWindow.loadURL("app://./home.html");
     await sampleWindow.loadURL("app://./sample.html");
   } else {
     const port = process.argv[2];
-    await mainWindow.loadURL(`http://localhost:${port}/home`);
+    await mainWindow.loadURL(`http://localhost:${port}/main-window`);
     await sampleWindow.loadURL(`http://localhost:${port}/sample`);
   }
 
@@ -45,6 +47,7 @@ if (isProd) {
 
   ipcMain.on('count-windows', () => {
     const windows = BrowserWindow.getAllWindows();
+    console.log(windows.length);
   })
 
   ipcMain.on('log-window-ids', () => {
